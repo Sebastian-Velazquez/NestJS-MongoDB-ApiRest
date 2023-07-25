@@ -8,23 +8,26 @@ import { CreateProductDTO } from './dto/product.dto'
 export class ProductService {
     constructor(@InjectModel('Product') private readonly  productModel: Model<Product>){}
 
-    getProducts(){
-        
+    async getProducts(): Promise<Product[]>{ //[]: porque va a devolver un arreglo
+        const products = await this.productModel.find(); //productModel: es la conexion de mongooose
+        return products
     }
 
-    getPrduct(){
-
+    async getProduct(productID: string): Promise<Product>{
+        const product = await this.productModel.findById(productID)
+        return product
     }
 
-    createProduct(){
-
+    async createProduct(createProductDTO: CreateProductDTO): Promise<Product>{
+        const product  =  new  this.productModel(createProductDTO);
+        return await product.save()
     }
 
-    deleteProduct(){
-
+    async deleteProduct(productID: string): Promise<Product>{
+        return await this.productModel.findByIdAndDelete(productID)
     }
 
-    updateProduct(){
-
+    async updateProduct(productID: string, createProductDTO: CreateProductDTO): Promise<Product>{
+        return await this.productModel.findByIdAndUpdate(productID, createProductDTO, {new:true});
     }
 }
