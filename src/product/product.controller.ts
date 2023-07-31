@@ -1,3 +1,4 @@
+//nest generate controller product
 import { Controller, Get, Post, Put, Delete, Res, HttpStatus, Body, Param, NotFoundException, Query } from '@nestjs/common';//Query para pasar una consulta por la url
 
 import { CreateProductDTO } from "./dto/product.dto";

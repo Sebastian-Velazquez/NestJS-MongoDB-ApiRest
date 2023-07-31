@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Module } from '@nestjs/common';//nest generate module product
 import { ProductController } from './product.controller';
 import { ProductService } from './product.service';
 import{ MongooseModule } from '@nestjs/mongoose' 

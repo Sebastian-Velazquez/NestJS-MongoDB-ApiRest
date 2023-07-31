@@ -5,8 +5,8 @@ import { AppService } from './app.service';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get()
-  getHello(): string {
+  @Get()//decorador
+  getHello(): string {//nombre a la funcion
     return this.appService.getHello();
   }
 }

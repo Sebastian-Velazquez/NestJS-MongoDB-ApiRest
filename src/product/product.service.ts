@@ -1,3 +1,5 @@
+//nest generate service product. va  contener todos lo metodos que va poder usar tda al aplicacion
+//aca se hace las conecciones coon la base de datos
 import { Injectable } from '@nestjs/common';
 import { Model } from 'mongoose'
 import { InjectModel } from '@nestjs/mongoose'
